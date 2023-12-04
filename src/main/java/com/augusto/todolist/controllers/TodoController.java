@@ -3,6 +3,7 @@ package com.augusto.todolist.controllers;
 import java.util.List;
 import java.util.UUID;
 
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,7 +25,7 @@ public class TodoController {
   private TodoService todoService;
 
   @PostMapping
-  public List<Todo> create(@RequestBody Todo todo) {
+  public List<Todo> create(@RequestBody @Valid Todo todo) {
     return todoService.create(todo);
   }
 
